@@ -1,0 +1,12 @@
+\begin{thebibliography}{1}
+
+\bibitem{DBLP:conf/focs/HopcroftPV75}
+{John E.} Hopcroft, {Wolfgang J.} Paul, and {Leslie G.} Valiant.
+\newblock On time versus space and related problems.
+\newblock In {\em 16th Annual Symposium on Foundations of Computer Science,
+  Berkeley, California, USA, October 13-15, 1975}, pages 57--64. {IEEE}
+  Computer Society, 1975.
+\newblock \href {https://doi.org/10.1109/SFCS.1975.23}
+  {\path{doi:10.1109/SFCS.1975.23}}.
+
+\end{thebibliography}
