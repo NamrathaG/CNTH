@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.29)  29 OCT 2022 18:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.29)  30 OCT 2022 22:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -506,44 +506,44 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box60
 ) (./lipics-v2019-sample-article.aux
 
-LaTeX Warning: Label `testenv-theorem' multiply defined.
+LaTeX Warning: Label `testenv-lemma' multiply defined.
 
 
-LaTeX Warning: Label `testenv-theorem@cref' multiply defined.
+LaTeX Warning: Label `testenv-lemma@cref' multiply defined.
 
 )
 \openout1 = `lipics-v2019-sample-article.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Info: Redefining \microtypecontext on input line 60.
-Package microtype Info: Applying patch `item' on input line 60.
-Package microtype Info: Applying patch `toc' on input line 60.
-Package microtype Info: Applying patch `eqnum' on input line 60.
-Package microtype Info: Applying patch `footnote' on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Info: Redefining \microtypecontext on input line 64.
+Package microtype Info: Applying patch `item' on input line 64.
+Package microtype Info: Applying patch `toc' on input line 64.
+Package microtype Info: Applying patch `eqnum' on input line 64.
+Package microtype Info: Applying patch `footnote' on input line 64.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 60.
+LaTeX Info: Redefining \showhyphens on input line 64.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -566,7 +566,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 60.
+Package hyperref Info: Option `breaklinks' set `true' on input line 64.
  (c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count315
@@ -589,8 +589,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 \c@lstlisting=\count321
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 60.
-Package hyperref Info: Link coloring OFF on input line 60.
+(lastpage)             ! on input line 64.
+Package hyperref Info: Link coloring OFF on input line 64.
  (c:/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (c:/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
@@ -600,9 +600,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count322
 )
-LaTeX Info: Redefining \ref on input line 60.
-LaTeX Info: Redefining \pageref on input line 60.
-LaTeX Info: Redefining \nameref on input line 60.
+LaTeX Info: Redefining \ref on input line 64.
+LaTeX Info: Redefining \pageref on input line 64.
+LaTeX Info: Redefining \nameref on input line 64.
  (./lipics-v2019-sample-article.out) (./lipics-v2019-sample-article.out)
 \@outlinefile=\write5
 \openout5 = `lipics-v2019-sample-article.out'.
@@ -610,7 +610,7 @@ LaTeX Info: Redefining \nameref on input line 60.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 63.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 67.
  (c:/texlive/2022/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -618,41 +618,41 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 63.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 67.
  (c:/texlive/2022/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 63.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 67.
  (c:/texlive/2022/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 63.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 67.
  (c:/texlive/2022/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 63.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 67.
  (c:/texlive/2022/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 63.
+(Font)              <10> on input line 67.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 63.
+(Font)              <7> on input line 67.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 63.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 63.
+(Font)              <5> on input line 67.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 67.
  (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (c:/texlive/2022/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 67.
  (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/texlive/2022/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 63.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 67.
  (c:/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -661,70 +661,39 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 63.
+(Font)              <9> on input line 67.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 63.
+(Font)              <6> on input line 67.
 \openout3 = `lipics-v2019-sample-article.vtc'.
 
-
-Underfull \hbox (badness 1072) in paragraph at lines 82--83
-[]\T1/lmr/m/n/10 (+20) Use the provided sec-tion-ing mac-ros: [][]\T1/lmtt/m/n/10 \section[]\T1/lmr/m/n/10 (+20) , [][]\T1/lmtt/m/n/10 \subsection[]\T1/lmr/m/n/10 (+20) , [][]\T1/lmtt/m/n/10 \subsubsection[]\T1/lmr/m/n/10 (+20) ,
- []
-
-<cc-by.pdf, id=38, 88.33pt x 31.11626pt>
-File: cc-by.pdf Graphic file (type pdf)
-<use cc-by.pdf>
-Package pdftex.def Info: cc-by.pdf  used on input line 98.
-(pdftex.def)             Requested size: 39.74274pt x 14.0pt.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 98.
-(c:/texlive/2022/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-<lipics-logo-bw.pdf, id=41, 591.44762pt x 144.42657pt>
-File: lipics-logo-bw.pdf Graphic file (type pdf)
-<use lipics-logo-bw.pdf>
-Package pdftex.def Info: lipics-logo-bw.pdf  used on input line 98.
-(pdftex.def)             Requested size: 64.00354pt x 14.0pt.
  [1
 
-{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./cc-by.pdf> <./lipics-logo-bw.pdf>]
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 144.
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 157.
- [2] (./lipics-v2019-sample-article.bbl) [3]
-Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 238.
-Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 242.
-Package hyperref Info: bookmark level for unknown exercise defaults to 0 on input line 246.
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 250.
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 254.
-Package hyperref Info: bookmark level for unknown note defaults to 0 on input line 258.
-Package hyperref Info: bookmark level for unknown note* defaults to 0 on input line 263.
-Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 266.
-Package hyperref Info: bookmark level for unknown remark* defaults to 0 on input line 271.
-Package hyperref Info: bookmark level for unknown claim defaults to 0 on input line 274.
- [4]
-Package hyperref Info: bookmark level for unknown claim* defaults to 0 on input line 278.
+{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 142.
+ [2]
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 207.
  
 AED: lastpage setting LastPage
-[5] (./lipics-v2019-sample-article.aux)
+[3] (./lipics-v2019-sample-article.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `lipics-v2019-sample-article.out' has not changed.
-(rerunfilecheck)             Checksum: 7FFFD9B6A3FC562A2D3A5A1DB86E486F;1194.
+(rerunfilecheck)             Checksum: 9AE56BCC24B2A21A9FE0148DEA1F9484;728.
  ) 
 Here is how much of TeX's memory you used:
- 20274 strings out of 478268
- 342186 string characters out of 5850345
- 690814 words of memory out of 5000000
- 37877 multiletter control sequences out of 15000+600000
- 577079 words of font info for 189 fonts, out of 8000000 for 9000
+ 20046 strings out of 478268
+ 338358 string characters out of 5850345
+ 686157 words of memory out of 5000000
+ 37761 multiletter control sequences out of 15000+600000
+ 558506 words of font info for 149 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,10n,90p,1088b,512s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on lipics-v2019-sample-article.pdf (5 pages, 363410 bytes).
+ 85i,9n,90p,1088b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy9.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on lipics-v2019-sample-article.pdf (3 pages, 271000 bytes).
 PDF statistics:
- 233 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
- 57 named destinations out of 1000 (max. 500000)
- 64593 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 151 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
+ 19 named destinations out of 1000 (max. 500000)
+ 53809 words of extra memory for PDF output out of 61914 (max. 10000000)
 
