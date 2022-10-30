@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1667115944 "c:/Users/Namratha/repos/CNTH_paper_writing/lemmas/lemma1.tex" "lemma1.pdf" "lemma1" 1667115946
-  "c:/Users/Namratha/repos/CNTH_paper_writing/lemmas/lemma1.tex" 1667115943 1553 83d73e17cd32f6ffb6857a038678311b ""
+["pdflatex"] 1667137950 "c:/Users/Namratha/repos/CNTH_paper_writing/lemmas/lemma1.tex" "lemma1.pdf" "lemma1" 1667137952
+  "c:/Users/Namratha/repos/CNTH_paper_writing/lemmas/lemma1.tex" 1667137950 8499 af8e50bd12f8e99f6e0014b54aff091a ""
   "c:/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1661777580 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1661776855 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1661776855 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -10,6 +10,7 @@
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1661776855 908 2921f8a10601f252058503cc6570e581 ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1661776855 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1661776855 940 228d6584342e91276bf566bcf9716b83 ""
+  "c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1661777162 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1661777162 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1661777162 1524 4414a8315f39513458b80dfc63bff03a ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1661777162 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -24,6 +25,7 @@
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm" 1661778744 688 37338d6ab346c2f1466b29e195316aa4 ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1661778744 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1661778744 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
+  "c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1661776855 32080 340ef9bf63678554ee606688e7b5339d ""
   "c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1661776855 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1661776855 37912 07513ec114ac737ab54cea0152f4424b ""
   "c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1661776855 36281 c355509802a035cadc5f15869451dcee ""
@@ -58,8 +60,8 @@
   "c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1661779487 4448422 53302d27d6d34c8e3e97ce3a8b4bdfa7 ""
   "c:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1661779640 2826437 812fda6576e612ace4dc7120a2a2c529 ""
   "c:/texlive/2022/texmf.cnf" 1661779458 713 e69b156964470283e0530f5060668171 ""
-  "lemma1.aux" 1667115945 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "lemma1.tex" 1667115943 1553 83d73e17cd32f6ffb6857a038678311b ""
+  "lemma1.aux" 1667137952 221 1435e41383d0ce012841f2d1e04b4a66 "pdflatex"
+  "lemma1.tex" 1667137950 8499 af8e50bd12f8e99f6e0014b54aff091a ""
   (generated)
   "lemma1.aux"
   "lemma1.log"
