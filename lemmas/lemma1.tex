@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, mathrsfs}
+\usepackage{array}
+\usepackage[body={5.5in,8.75in}]{geometry}
+
+\title{Problem Set 8}
+\date{}
+\begin{document}
+
+\maketitle
+
+
+Given the reachability problem i.e the configuration of states that need to be reached in a subset of process. We define the below languages
+Let $P \in \mathscr{P}$ be the set of processes whose target state reachability we are interested in. 
+We define the following automaton for them using their transition systems.
+For every $i \in \mathscr{P}$ we define $A_i = (Q_i, \Sigma_i, \delta_i, s_i, F_i)$
+
+where $Q_i$ are the same as in the transition system, $\Sigma_i$ = union of channel alphabets for which this process is a reader and writer,
+$\delta_i$ is the same as in the transition system but the operation replaced by the message letter being read or written and no-op replaced by $\epsilon$ 
+$s_i$ is the same as transition system initial state
+$F_i$ is the target state we are interested in if $i \in P$ else it is $Q_i$
+
+$L_i$ is the language accepted by the automaton $A_i$
+
+ASSUMPTION : w.l.o.g we assume that all the channel alphabets are disjoint
+
+
+Given the directed tree topology, we define a language $L_i^e$ 
+If process i is a leaf then $L_i^e = L_i \cap \Sigma_{i_r}^*$ where $i_r$ is the channel process $i$ reads from.
+If process i is a non-leaf, and the children of i are $k_1, k_2, ..., k_m$ then $L_i^e = L_i \cap shuffle(L_{k_1}^e, L_{k_2}^e, ..., L_{k_m}^e)$
+
+
+
+\end{document}
