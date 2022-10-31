@@ -67,17 +67,32 @@ State Machines over acyclic topology } %TODO Please add
 
 %TODO mandatory: add short abstract of the document
 \begin{abstract}
-    The paper shows that the reachability problem for concurrent finite state processes which communicate over FIFO queues is decidable over acyclic topologies. 
+    Models of concurrent finite state processes that communicate over queues allow different reachability results based on the underlying topology. The reachability is known to be undecidable for a general topology, but when we restrict to acyclic topologies it becomes decidable. The paper provides a proof of how it can be decided by reducing the problem to checking emptiness of a certain regular language. 
 \end{abstract}
 
 \section{Introduction}
 \label{sec:typesetting-summary}
 
-LIPIcs is a series of open access high-quality conference proceedings across all fields in informatics established in cooperation with Schloss Dagstuhl. 
-In order to do justice to the high scientific quality of the conferences that publish their proceedings in the LIPIcs series, which is ensured by the thorough review process of the respective events, we believe that LIPIcs proceedings must have an attractive and consistent layout matching the standard of the series.
-Moreover, the quality of the metadata, the typesetting and the layout must also meet the requirements of other external parties such as indexing service, DOI registry, funding agencies, among others. The guidelines contained in this document serve as the baseline for the authors, editors, and the publisher to create documents that meet as many different requirements as possible. 
+Distributed systems are becoming more and more popular. The ability to achieve with multiple cores/ computers for efficiency, reliability is highly enticing. Applications like block chain, database replication, ... 
 
-Please comply with the following instructions when preparing your article for a LIPIcs proceedings volume. 
+These concurrent nature of these applications/programs makes their verification challenging. Techniques to solve this problem are in high demand. 
+
+Formal methods uses mathematical formalism makes it easier to show that certain algorithms are not possible, maybe by showing that they are undecidable/decidable (atleast theoretically) which provides a motivation to develop efficient algorithms that can be used for practical purposes. 
+
+Communicating finite state processes (cite paper) over queues has been a standard model for modelling concurrent non-recursive programs. 
+
+One correctness idea for a concurrent program is to define via a safety property. Which states that a bad state should never be reached in my program. Which translates to asking in the model when we start with the initial configuration is it possible to reach this bad state. 
+The answer to this question depends on the model we have considered. 
+It turns out that for the communication finite state processes with queues it is undecidable to know if a state is reachable and this is shown because it is turing powerful (cite paper). But when restricted to certain class of topologies it allows for decidablity.
+
+
+%Explain what exactly do these models model in the real world
+
+%Why is this model helpful?
+
+%Why is reachability important? 
+
+
 
 
 \section{System topology}
