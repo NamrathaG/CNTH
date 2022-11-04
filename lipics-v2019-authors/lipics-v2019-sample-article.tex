@@ -9,7 +9,7 @@
 %for enabling autoref support, use "autoref"
 %for anonymousing the authors (e.g. for double-blind review), add "anonymous"
 %for enabling thm-restate support, use "thm-restate"
-% \usepackage{hyperref}
+\usepackage{tabto}
 %\graphicspath{{./graphics/}}%helpful if your graphic files are in another directory
 
 \bibliographystyle{plainurl}% the mandatory bibstyle
@@ -99,25 +99,55 @@ It turns out that for the communication finite state processes with queues it is
 
 \subsection{Model}
 
-We work with a topology which we describe using the tuple $(\mathcal{P}, \mathcal{C}, r, w)$ where $P$ is the set of processes, $C$ is the set of channels, $r$ is function $r:C \rightarrow P$ and $w$ is a function $w:C \rightarrow P$. 
-We assume that no channel has the same reader and writer.
 
-Each process is a finite state transition system $TS_i = (Q_i, \Sigma_i, \delta_i, s_i)$
-
-%nam-rephrase-this
-Since we are interested only in control state reachability and not in language
-theory, we will ignore the alphabet and final states. However the transitions
-may also have associated actions, which in our case may be sending a mes-
-sage to a channel or receiving a message from a channel. 
-
-
-% describe what delta_i looks like
-$\delta_i$ has q -> q' on  c?a if is a reader, c!a if it is a writer or a nop
+\paragraph*{Topology}
+We work with a topology which we describe using the tuple 
+\begin{center}
+$\mathcal{T}= (\mathcal{P}, \mathcal{C}, r, w)$,
+\end{center}
+where \\
+\hspace*{1cm} $\mathcal{P}$ is the set of processes; \\
+\hspace*{1cm} $\mathcal{C}$ is the set of channels; \\
+\hspace*{1cm} $r:\mathcal{C}  \rightarrow \mathcal{P}$ is the reader function that assigns to each channel a process that can read from it;\\
+\hspace*{1cm} $w:\mathcal{C} \rightarrow \mathcal{P}$ is the writer function that assigns to each channel a process that can write to it.
 
 
-Each channel holds messages coming from a finite set i.e. $c_i \in C$ can have messages from $M_i$ 
+\paragraph*{Channel}
+
+Each channel $c \in \mathcal{C}$ has a message alphabet $\Gamma_c$.\\
+Operations on the channel: 
+\begin{itemize}
+\item $c!m$ is a send operation. It appends the message $m$ to the end of channel $c$
+\item $c?m$ is a read operation. It receives the message $m$ from the head of channel $c$ (enabled only if $m$ is at the head of channel $c$)
+
+\end{itemize}
+
+
+\paragraph*{Process}
+
+Each process $p\in \mathcal{P}$ is modelled as a finite state transtion system 
+\begin{center}
+   $TS_p = (Q_p, \delta_p, s_p)$,
+\end{center}
+where \\
+\hspace*{1cm} $Q_p$ is a finite set of states;\\
+\hspace*{1cm} $\delta_p \subseteq Q_p \times O_p \times Q_p$ is a finite set of transitions, where, \\
+\hspace*{2cm} $O_p = \{ c?m \hspace{1mm}| \hspace{1mm} r(c) = p,  m \in \Gamma_c\} \cup \{ c!m \hspace{1mm}| \hspace{1mm} w(c) = p, m \in \Gamma_c\}$; \\
+\hspace*{1cm} $s_p$ is the initial state.
+
+
 
 \subsection{Configuration Graph}
+
+A configuration $(\alpha, \beta)$ of the system is a pair describing the states of all processes (control state) and the contents of all channels(channel state). \\
+\hspace*{5cm} ${\displaystyle \alpha \in \prod_{i \in \mathcal{P}} Q_i}$, ${\displaystyle \beta \in \prod_{c \in \mathcal{C}} \Gamma_c^*}$\\
+For any $p \in \mathcal{P}$, We write $\alpha(p)$ gives the state of process $p$, and for any $c \in \mathcal{C}$, $\beta(c)$ gives the content of channel $c$. $\alpha[p \leftarrow q]$ to be the control state  $\alpha'$ such that $\alpha'(p) = q$, and $\alpha'(p') = \alpha(p')$ if $p' \neq p$. Similarly, we define $\beta[c \leftarrow w]= \beta'$ such that $\beta'(c) = w$, and $\beta'(c') = \beta(c')$ if $c' \neq c$
+\\
+\\
+Vertices in the configuration graph ($G = (V, E)$) are configurations, and the edges are labelled with channel operations. The edges need to satisfy the following conditions. \\
+Let $(\alpha, \beta), (\alpha', \beta') \in V, c \in \mathcal{C}$, then 
+
+% \begin{itemize}
 
 A global configuration of the system would consist of the states of each process and the channel contents of each channel. So if we have n processes and m channels, a configuration would be the tuple $(q_0, q_1, ..., q_n, \gamma_1, \gamma_2, ..., \gamma_m)$
 
