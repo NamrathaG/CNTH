@@ -99,9 +99,8 @@ It turns out that for the communication finite state processes with queues it is
 
 \subsection{Model}
 
-We work with a topology which we describe using the tuple $(P, C, Reader, Writer)$ where $P$ is the set of processes, $C$ is the set of channels, $Reader$ is a function $C \rightarrow P$ and $Writer$ is a function $C \rightarrow P$. 
-Also, we assume that no channel has the same reader and writer.
-
+We work with a topology which we describe using the tuple $(\mathcal{P}, \mathcal{C}, r, w)$ where $P$ is the set of processes, $C$ is the set of channels, $r$ is function $r:C \rightarrow P$ and $w$ is a function $w:C \rightarrow P$. 
+We assume that no channel has the same reader and writer.
 
 Each process is a finite state transition system $TS_i = (Q_i, \Sigma_i, \delta_i, s_i)$
 
