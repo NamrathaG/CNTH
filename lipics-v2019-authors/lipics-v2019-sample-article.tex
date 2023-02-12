@@ -9,13 +9,13 @@
 %for enabling autoref support, use "autoref"
 %for anonymousing the authors (e.g. for double-blind review), add "anonymous"
 %for enabling thm-restate support, use "thm-restate"
-% \usepackage{hyperref}
+\usepackage{tabto}
 %\graphicspath{{./graphics/}}%helpful if your graphic files are in another directory
 
 \bibliographystyle{plainurl}% the mandatory bibstyle
 
 \title{Decidability results of Communicating Finite
-State Machines over acyclic topology } %TODO Please add
+State Machines} %TODO Please add
 
 \titlerunning{} %TODO optional, please use if title is longer than one line
 
@@ -73,165 +73,166 @@ State Machines over acyclic topology } %TODO Please add
 \section{Introduction}
 \label{sec:typesetting-summary}
 
-Distributed systems are becoming more and more popular. The ability to achieve with multiple cores/ computers for efficiency, reliability is highly enticing. Applications like block chain, database replication, ... 
-
-These concurrent nature of these applications/programs makes their verification challenging. Techniques to solve this problem are in high demand. 
-
-Formal methods uses mathematical formalism makes it easier to show that certain algorithms are not possible, maybe by showing that they are undecidable/decidable (atleast theoretically) which provides a motivation to develop efficient algorithms that can be used for practical purposes. 
-
-Communicating finite state processes (cite paper) over queues has been a standard model for modelling concurrent non-recursive programs. 
-
-One correctness idea for a concurrent program is to define via a safety property. Which states that a bad state should never be reached in my program. Which translates to asking in the model when we start with the initial configuration is it possible to reach this bad state. 
-The answer to this question depends on the model we have considered. 
-It turns out that for the communication finite state processes with queues it is undecidable to know if a state is reachable and this is shown because it is turing powerful (cite paper). But when restricted to certain class of topologies it allows for decidablity.
+\hspace*{0.5cm}The concurrent nature of distributed systems makes their verification challenging. Formal methods employ mathematical models to reason about them. Communicating finite state machines (CFSM)  over queues has been a standard model for modelling concurrent non-recursive programs. \\
+\hspace*{0.5cm}Defining correctness of a concurrent program is also non-trivial. One idea is to define it via a safety property, which states that a bad state should never be reached in the program. This translates to asking whether it is possible to reach this bad state from the initial configuration in this model. The answer to this question depends on the model we consider. It turns out that for CFSMs with queues, it is undecidable to know if a state is reachable, but when restricted to certain class of acyclic topologies it becomes decidable.
 
 
-%Explain what exactly do these models model in the real world
+\section{Model}
 
-%Why is this model helpful?
+\subsection{Topology}
 
-%Why is reachability important? 
-
-
-
-
-\section{System topology}
-
-\subsection{Model}
-
-We work with a topology which we describe using the tuple $(\mathcal{P}, \mathcal{C}, r, w)$ where $P$ is the set of processes, $C$ is the set of channels, $r$ is function $r:C \rightarrow P$ and $w$ is a function $w:C \rightarrow P$. 
-We assume that no channel has the same reader and writer.
-
-Each process is a finite state transition system $TS_i = (Q_i, \Sigma_i, \delta_i, s_i)$
-
-%nam-rephrase-this
-Since we are interested only in control state reachability and not in language
-theory, we will ignore the alphabet and final states. However the transitions
-may also have associated actions, which in our case may be sending a mes-
-sage to a channel or receiving a message from a channel. 
+We describe our topology using the tuple \\
+\hspace*{5cm}$\mathcal{T}= (\mathcal{P}, \mathcal{C}, r, w)$, \\
+where \\
+\hspace*{0.8cm} $\mathcal{P}$ is the set of processes; \\
+\hspace*{0.8cm} $\mathcal{C}$ is the set of channels; \\
+\hspace*{0.8cm} $r:\mathcal{C}  \rightarrow \mathcal{P}$, reader function that assigns to each channel a process that can read from it;\\
+\hspace*{0.8cm} $w:\mathcal{C} \rightarrow \mathcal{P}$, writer function that assigns to each channel a process that can write to it.
 
 
-% describe what delta_i looks like
-$\delta_i$ has q -> q' on  c?a if is a reader, c!a if it is a writer or a nop
+\paragraph*{Channels}
+
+Each channel $c \in \mathcal{C}$ has a message alphabet $\Gamma_c$. We assume channel alphabets are disjoint. If $w \in \Gamma_c^*$, we mean the first letter of $w$ is at the head of the channel $c$.\\
+Operations on the channel: 
+\begin{itemize}
+\item $c!m$ is a send operation. It appends the message $m$ to the end of channel $c$.
+\item $c?m$ is a read operation. It receives the message $m$ from the head of channel $c$ (enabled only if $m$ is at the head of channel $c$).
+\end{itemize}
 
 
-Each channel holds messages coming from a finite set i.e. $c_i \in C$ can have messages from $M_i$ 
+
+\paragraph*{Processes}
+
+Each process $p\in \mathcal{P}$ is modelled as a finite state transtion system 
+\begin{center}
+   $TS_p = (Q_p, \Delta_p, s_p)$,
+\end{center}
+where \\
+\hspace*{0.5cm} $Q_p$ is a finite set of states;\\
+\hspace*{0.5cm} $\Delta_p \subseteq Q_p \times O_p \times Q_p$ is a finite set of transitions, where, \\
+\hspace*{2cm} $O_p = \{ c?m \hspace{1mm}| \hspace{1mm} r(c) = p,  m \in \Gamma_c\} \cup \{ c!m \hspace{1mm}| \hspace{1mm} w(c) = p, m \in \Gamma_c\}$; \\
+\hspace*{0.5cm} $s_p$ is the initial state.
+
+
 
 \subsection{Configuration Graph}
 
-A global configuration of the system would consist of the states of each process and the channel contents of each channel. So if we have n processes and m channels, a configuration would be the tuple $(q_0, q_1, ..., q_n, \gamma_1, \gamma_2, ..., \gamma_m)$
+
+\hspace*{0.5cm}A configuration $(\alpha, \beta)$ of the system is a pair describing the states of all processes (control state) and the contents of all channels (channel state). \\
+\hspace*{5cm} ${\displaystyle \alpha \in \prod_{i \in \mathcal{P}} Q_i}$, ${\displaystyle \beta \in \prod_{c \in \mathcal{C}} \Gamma_c^*}$\\
+\hspace*{0.5cm}For any $p \in \mathcal{P}$, $\alpha(p)$ gives the state of process $p$, and for any $c \in \mathcal{C}$, $\beta(c)$ gives the content of channel $c$. We define $\alpha[p \leftarrow q]$ to be the control state  $\alpha'$ such that $\alpha'(p) = q$, and $\alpha'(p') = \alpha(p')$ if $p' \neq p$. Similarly, we define $\beta[c \leftarrow w]= \beta'$ such that $\beta'(c) = w$, and $\beta'(c') = \beta(c')$ if $c' \neq c$\\
+\hspace*{0.5cm}Vertices in the configuration graph ($G = (V, E)$) are configurations, and the edges are labelled with channel operations. The edges need to satisfy the following conditions: \\
+Let $(\alpha, \beta), (\alpha', \beta') \in V, c \in \mathcal{C}$, then 
+\begin{itemize}
+\item $(\alpha, \beta) \xrightarrow{c!m} (\alpha', \beta')$ if
+\begin{itemize}
+    \item $\alpha' = \alpha[w(c) \leftarrow \alpha'(w(c))]$
+    \item $(\alpha(w(c)), c!m, \alpha'(w(c))) \in \Delta_{w(c)}$
+    \item $\beta' = \beta[c \leftarrow \beta(c).m]$
+
+\end{itemize}
 
 
-% decsribe how the edges of the global transition graph work
+\item $(\alpha, \beta) \xrightarrow{c?m} (\alpha', \beta')$ if
+\begin{itemize}
+    \item $\alpha' = \alpha[r(c) \leftarrow \alpha'(r(c))]$
+    \item $(\alpha(r(c)), c?m, \alpha'(r(c))) \in \Delta_{r(c)}$
+    \item $\beta = \beta'[c \leftarrow m.\beta'(c)]$
 
-that is when a transition from one tuple to the next happens what all should align in the universe.
-
-A run is a path in this graph 
+\end{itemize}
+\end{itemize}
+\hspace*{0.5cm}A run $\rho$ is a path in this graph. $c_1 \xrightarrow[G]{*} c_2 $ represents a run starting in $c_1$ and ending in $c_2$. $\rho \downarrow_{p}$ is the projection of $\rho$ to process $p$, i.e. only transitions of process $p$ are considered. Similarly, we can define projection to a set of processes.
 
 
 \section{The Reachability Problem}
+\hspace*{0.5cm}A target control state $\alpha_t$ is said to be reachable if there is a run $c_0 \xrightarrow{*} c_t$, where, $c_0 = (\alpha_0, \beta_0),$  $\alpha_0(p)= s_p \hspace{1mm}\forall p \in \mathcal{P}$, and $\beta_0(c) = \epsilon \hspace{1mm} \forall c \in \mathcal{C}$; $c_t = (\alpha_t, \beta)$ for some $\beta$ \\
+\hspace*{0.5cm}The reachability problem asks whether a given target control state is reachable. We know that the problem is undecidable in general, because if there is a loop in the topology then we can simulate a queue machine and state reachability is undecidable for queue machines. \\
+\hspace*{0.5cm}So we ask the question of whether it is decidable for acyclic topologies.
+What we mean by acyclic topologies is consider the network topology and ignore the direction of the edges, we get an undirected graph and this graph should have no cycles. 
 
-The reachability problem is to ask whether we can reach a target configuration where one or more processes are in a target state.
+\paragraph*{Tree topology}
 
-We know that the problem is undecidable in general (cite), because if there is a loop in the topology then we can simulate a queue machine and state reachability is undecidable for queue machines. 
-
-So we ask the question of whether it is decidable for acyclic topologies.
-
-What we mean by acyclic topologies is consider the network topology and ignore the direction of the edges, so we get an undirected graph and this graph should have no cycles.
-
-We solve this with the help of two reductions
-
-\paragraph*{Reduction 1}
-
-given such an acyclic topology the reachability problem can be reduced to one in which the target state is reached only if the queue is empty \cite{CQS}
-
-\paragraph*{Reduction 2}
-We reduce it to another isomorphic topology that looks like a tree, where every process has one incoming edge (except the root) i.e every process can read from one channel but write to multiple channels \cite{CQS}
+\hspace*{0.5cm}Given an acyclic topology the reachability problem can be reduced to one in which the target state is reached only if the queue is empty \cite{CQS}. Using this reduction our reachabilty problem reduces to reaching a channel state $\beta_t$ with every channel being empty i.e. we take every channel content to be $\epsilon$ in the target state.\\
+\hspace*{0.5cm}We further reduce our topology to another isomorphic topology that looks like a tree, where every process has one incoming edge (except the root) i.e every process can read from one channel but write to multiple channels \cite{CQS}. Henceforth we work with a tree topology. Although the root node doesn't read from any channel, we add a dummy channel which is initialized to $\epsilon$ for consistency with other nodes. This way every node reads from some channel and we define a function $\iota(p)$, which gives the channel that process $p$ reads from. We define $G_p = (V_p, E_p)$ to be the induced subgraph of the configuration graph $G$ where $V_p$ are the nodes reachable from $p$ in the tree. 
 
 
 
+\paragraph*{Languages}
 
+\hspace*{0.5cm}Given the target control state $\alpha_t$  to be reached, we define for all $p \in \mathcal{P}$ the language $L_p = L(A_p)$. We get the finite automation $A_p$ by taking the transition system $TS_p$ and replacing the opertion in the transition with just the message and having final state as $\alpha_t(p)$. \\
+\hspace{5cm} $A_p= (Q_p, \Sigma_p, \delta_p, s_p, \alpha_t(p))$, 
+where, $\Sigma_p = \bigcup\limits_{c \in \mathcal{C}} \{ \Gamma_c : r(c) = p \text{ or } w(c) = p\}$ , $\delta_p = \{(q, m, q') : (q, c?m, q') \in \Delta_p \text{ or } (q, c!m, q') \in \Delta_p\}$. $\pi_c(w)$ is the word we get by deleting all letters not in $\Gamma_c$. This can be extended to languages as well i.e. $\pi_c(L) = \{ \pi_c(w) : w \in L\}$.\\
+\hspace*{0.5cm}We define for all $p \in \mathcal{P}$, $L_p^e$ as follows : 
+\begin{itemize}
+    \item if $p$ is a leaf node, $L_p^e = L_p \cap \Gamma_{\iota(p)}^*$,
+    \item if $p$ is a non-leaf node, and children of $p$ is given by the set $k(p) = \{k_1, k_2, .., k_l\}$, $L_p^e = L_p \cap \text{shuffle}(\{ \pi_{\iota(i)}(L_i^e)  : i \in k(p)\} \cup \{\Gamma_{\iota(p)}^*\})$
+\end{itemize}
+\hspace*{0.5cm}If there is run $\rho$ in $G$ then by projecting it to $p$ we get $\rho \downarrow_p$, we can take this run and erase the channel name to get a corresponding run in $A_p$. Conversely, if we have a run in $A_p$ labelled with $w$ and start in a configuration where channel $\iota(p)$ has the word $\pi_{\iota(p)}(w)$ then we can get the corresponding run in $G$.
     
 
+
+
 \begin{lemma}\label{testenv-lemma}
-Given a directed tree topology with r=0 as the root of the tree
-$w \in L_r^e \implies (s_0, s_1, ...,s_n, w \downarrow_{r(0)}, \epsilon, ...,\epsilon) \rightarrow_G^* (f_0, f_1, ..., f_n, \epsilon, \epsilon, ... \epsilon)$
+
+Let $p$ be the root of the tree, then \\
+\hspace*{2cm}$w \in L_p^e \implies (\alpha_0, \beta_0[\iota(p) \leftarrow \pi_{\iota(p)}(w) ]) \xrightarrow[G_p]{*} (\alpha_t', \beta_t)$, \\
+where $\alpha_t'(p) = \alpha_t(p) \text{ for } p \in V_p  \text{ and } \alpha_t'(p) = \alpha_0(p) \text{ for } p \notin V_p$
 \end{lemma}
    
-   
-\begin{proof}
-Induction on the no. of nodes in the directed tree topology
-
-Base case: We have only one node r,  $L_r^e = {\epsilon} \implies \epsilon \in L_r \implies s_r = f_r$, clearly since we start in $s_r$ it is reachable
-
-Induction: 
-Let r be a non-leaf node and let the children be $k_1, k_2, ..., k_m$,  
-$w \in L_r^e \implies w \in L_i \cap shuffle(L_{k_1}^e\!\!\!\downarrow_{r}, L_{k_2}^e\!\!\!\downarrow_{r}, ..., L_{k_m}^e\!\!\!\downarrow_{r}, M_{r(i)}^*)$
-$w$ is of the form $shuffle(w_1, w_2, ..., w_m)$ where $w_i \in L_{k_i}^e\!\!\!\downarrow_{r(i)}$
-
-$w_i\downarrow_{r(k_i)}$ = $w_i'\downarrow{r(k_i)}$ where $w_i' \in L_{k_i}^e$
-
-Let $\pi_i$ be the tree that is rooted by $k_i$
-By induction hypothesis, since $w_i' \in L_{k_i}^e$ we have run from nodes in $\pi$ are in start state, and reader channel of $k_i$ has $w_i'\downarrow{r(k_i)}$ 
-to a final configuration where every node is in the final state and all channels are empty.
-
-Since w is in $L_r^e$ it means it is also in $L_r$ we can take this run and convert to the corresponding run in the configuration graph where only r is moving, 
-and this w can generate $w_i'\downarrow{r(k_i)}$ in each $k_i$'s reader channel, so we can start from $(s_0, s_1,...,s_n, \epsilon ...) -> (\text{only r moves and fills up all the channels}) -> (f_0, s_1, ..., s_n,\epsilon, w_i\downarrow_{r(k_i)}, ... w_i\downarrow_{r(k_i)} ) -> stitch the k_i run one after the other$ 
-
+\begin{proof} By induction on the no. of nodes in the tree graph $G_p$.\\
+\hspace*{0.5cm}Base case: No. of nodes is 1. Let this node be p.  $w \in L_p^e \implies w \in L_p$, so there is a run  $s_p \xrightarrow[A_p]{w} \alpha_t(p)$. Since p is a leaf node it doesn't write to any channel, $\pi_{\iota(p)}(w) = w$. Therefore, in $G_p$ we get the run $(\langle s_p \rangle , \langle \pi_{\iota(p)}(w) \rangle ) \xrightarrow[G_p]{*} (\langle \alpha_t(p) \rangle , \langle \epsilon \rangle )$\\
+\hspace*{0.5cm}Induction: Let $p$ be a non-leaf node and children of $p$ be $k(p) = \{k_1, k_2, .., k_l\}$. We have $w \in  L_p \cap \text{shuffle}(\{ \pi_{\iota(i)}(L_i^e)  : i \in k(p)\} \cup \{\Gamma_{\iota(p)}^*\})$
+$\implies w \in shuffle(w_1,.., w_l,\pi_{\iota(p)}(w) )$ where $w_i \in \pi_{\iota(i)}(L_i^e)$. 
+By induction hypothesis we have a  run $\rho_i$ : $(\alpha_0, \beta_0[\iota(i) \leftarrow w_i]) \xrightarrow[G_i]{*} (\alpha_t', \beta_t)$ for each $i \in k(p)$. 
+Since $w \in L_p$ we have the run $\rho$:  $s_p \xrightarrow[A_p]{*} \alpha_t(p)$. 
+Using $\rho$ and the runs for each i, $\rho_i$, we can construct a run in $G_p$ as follows: 
+$(\alpha_0, \beta_0[p \leftarrow \pi_{\iota(p)}(w)]) \xrightarrow[\text{p moves}]{*} (\alpha_0[p \leftarrow \alpha_t(p)], \beta_0[\{i \leftarrow w_i : i \in k(p)\}]) \xrightarrow[\text{$k_1$ moves}]{*} \cdots \xrightarrow[\text{$k_l$ moves}]{*} (\alpha_t', \beta_t) $
+\end{proof}
     
-   \end{proof}
-    
-   
+
 
    
 \begin{lemma}\label{testenv-lemma}
-Given a directed tree topology with i=0 as the root of the tree.
 
-$(s_0, s_1, ...,s_n, \alpha, \epsilon, ...,\epsilon) \rightarrow_G^* (f_0, f_1, ..., f_n, \epsilon, \epsilon, ... \epsilon) => \exists w \in L_i^e,   \alpha \downarrow_{r(0)} = w \downarrow_{r(0)}$
+Let $p$ be the root of the tree, then \\
+\hspace*{2cm}$(\alpha_0, \beta_0[\iota(p) \leftarrow \omega]) \xrightarrow[G_p]{*} (\alpha_t', \beta_t) \implies \exists w \in L_p^e $ such that $\pi_{\iota(p)}(w) = \omega$, \\
+where $\alpha_t'(p) = \alpha_t(p) \text{ for } p \in V_p  \text{ and } \alpha_t'(p) = \alpha_0(p) \text{ for } p \notin V_p$
 
-   \end{lemma}
+
+\end{lemma}
    
-   
-   \begin{proof}
-    Base case : There is only one node $\alpha$ has to be epsilon 
 
-    Induction: 
-    Let r be a non-leaf node, and $k_1, k_2, ..., k_n$ be the children of the r and let the tree rooted by them be $\pi_1, \pi_2, .., \pi_n$ 
-    
-    Let r run and fill all the reader channels with $\alpha_i$
-    For each $k_i$ we form a run from where only nodes in $\pi_i$ are in start state and $\alpha_i$ is in the reader channel of $k_i$, there and final state is reached. Now we use induction hypothesis to say that there is a word in $w_i \in L_{k_i}^e$ and $\alpha_i \downarrow_{r(0)} = w_i \downarrow_{r(0)}$
-    
-    So we find a $w_i$ for each $k_i$
-    
-    so we have $w_i \downarrow_{r(i)} \in L_i^e$ 
-    so we have  $\alpha_i \in L_i^e$ 
-    
-    Consider the word $w \in shuffle(\alpha_1, \alpha_2,...\alpha_n, \alpha)$
-    $w also belongs to L_r$
-    
-    $w \in L_r^e$ and $w \downarrow_{r(r)} = \alpha $ 
-    
-    
-    
-    
-   \end{proof}
+\begin{proof}
+Induction on the no. of nodes in the tree. \\
+\hspace*{0.5cm}Base case: No. of nodes is 1. Let this node be p. We have $(\langle s_p \rangle, \langle \omega \rangle ) \xrightarrow[G_p]{*} (\langle \alpha_t(p) \rangle, \langle \epsilon \rangle)$ implies we have the run $s_p \xrightarrow[A_p]{\omega } \alpha_t(p)$ $\implies$ $\omega \in L_p^e$ and we can take $w$ as $\omega$ itself since $\pi_{\iota(p)}(\omega) = \omega$. \\
+\hspace*{0.5cm}Induction: Let $p$ be a non-leaf node and children of $p$ is given by the set $k(p) = \{k_1, k_2, .., k_l\}$. We have the run $\rho: (\alpha_0, \beta_0[\iota(p) \leftarrow \omega]) \xrightarrow[G_p]{*} (\alpha_t', \beta_t)$. 
+We can construct another run $\rho'$ in which all the p transitions are taken first and no other process moves until p finishes. Once p finishes let channel state be $\beta'$ 
+where $\beta'(\iota(k_i)) = \omega_i$ and the rest of the channels have $\epsilon$. 
+
+Take the corresponding run in $A_p$ and let that be $s_p \xrightarrow[A_p]{w'} \alpha_t(p)$
+
+We can extract the following run from $\rho'$ by taking only transitions of $V_{k_i}$ 
+
+$(\alpha, \beta_0[\iota(k_i) \leftarrow \omega_i]) \xrightarrow[\text{only nodes in $V_{k_i}$ move}]{} (\alpha_t', \beta_t)$. By induction hypothesis we have some word $w_i \in L_{k_i}^e$ and $\omega_i = \pi_{\iota(k_i)}(w_i) \implies \omega_i \in \pi_{\iota(k_i)}L_{\iota(k_i)}^e$
+
+We have $w' \in shuffle(\omega_1, ..., \omega_l, \omega)$ 
+$\implies$ $w' \in L_p^e$ and $\pi_{\iota(p)}(w') = \omega$
+
+
+\end{proof}
     
 
    
 \begin{theorem}\label{testenv-theorem}
-    The Reachability problem is decidable for CFMs with FIFO channels over undirected topology. 
+    The Reachability problem is decidable for CFSMs with queues over acyclic toplogies. 
    \end{theorem}
 
    
 \begin{proof}
-    We use reductions 1 and 2 to get a tree topology
+    We use the reductions stated above to get a tree topology. Let $p$ be the root of the tree. From Lemma 1 we know that if $w \in L_p^e$ then there is a run  $(\alpha_0, \beta_0[\iota(p) \leftarrow \pi_{\iota(p)}(w) ]) \xrightarrow[G_p]{*} (\alpha_t', \beta_t)$. Since the root node doesn't read from a channel we can keep it empty and take the same transitions to get $\rho: (\alpha_0, \beta_0) \xrightarrow[G_p]{*} (\alpha_t, \beta_t)$. Conversely, if we have such a run $\rho$, using Lemma 2 and substituting $\epsilon$ for $\omega$ we get a $w \in L_p^e$. Therefore, we can reduce reachability to emptiness of the language $L_p^e$ which is regular and hence decidable. 
+
     
    \end{proof}
-
-\section{Conclusions}
-
-Morbi eros magna, vestibulum non posuere non, porta eu quam. Maecenas vitae orci risus, eget imperdiet mauris. Donec massa mauris, pellentesque vel lobortis eu, molestie ac turpis. Sed condimentum convallis dolor, a dignissim est ultrices eu. Donec consectetur volutpat eros, et ornare dui ultricies id. Vivamus eu augue eget dolor euismod ultrices et sit amet nisi. Vivamus malesuada leo ac leo ullamcorper tempor. Donec justo mi, tempor vitae aliquet non, faucibus eu lacus. Donec dictum gravida neque, non porta turpis imperdiet eget. Curabitur quis euismod ligula. 
-
 
 \begin{thebibliography}{9}
 
