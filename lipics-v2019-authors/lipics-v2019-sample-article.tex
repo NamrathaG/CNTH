@@ -73,18 +73,16 @@ State Machines} %TODO Please add
 \section{Introduction}
 \label{sec:typesetting-summary}
 
-\hspace*{0.5cm}The concurrent nature of distributed systems makes their verification challenging. Formal methods use mathematical formalism via models to reason about them. Communicating finite state machines (CFSM)  over queues has been a standard model for modelling concurrent non-recursive programs. \\
-\hspace*{0.5cm}Defining correctness of a concurrent program is also non-trivial. One idea is to define it via a safety property, which states that a bad state should never be reached in my program. This translates in the model to asking whether it is possible to reach this bad state from the initial configuration. The answer to this question depends on the model we consider. It turns out that for CFSMs with queues, it is undecidable to know if a state is reachable, but when restricted to certain class of acyclic topologies it allows for decidablity.
+\hspace*{0.5cm}The concurrent nature of distributed systems makes their verification challenging. Formal methods employ mathematical models to reason about them. Communicating finite state machines (CFSM)  over queues has been a standard model for modelling concurrent non-recursive programs. \\
+\hspace*{0.5cm}Defining correctness of a concurrent program is also non-trivial. One idea is to define it via a safety property, which states that a bad state should never be reached in the program. This translates to asking whether it is possible to reach this bad state from the initial configuration in this model. The answer to this question depends on the model we consider. It turns out that for CFSMs with queues, it is undecidable to know if a state is reachable, but when restricted to certain class of acyclic topologies it becomes decidable.
 
 
 \section{Model}
 
 \subsection{Topology}
 
-We describe our topology using the tuple 
-\begin{center}
-$\mathcal{T}= (\mathcal{P}, \mathcal{C}, r, w)$,
-\end{center}
+We describe our topology using the tuple \\
+\hspace*{5cm}$\mathcal{T}= (\mathcal{P}, \mathcal{C}, r, w)$, \\
 where \\
 \hspace*{0.8cm} $\mathcal{P}$ is the set of processes; \\
 \hspace*{0.8cm} $\mathcal{C}$ is the set of channels; \\
@@ -94,13 +92,13 @@ where \\
 
 \paragraph*{Channels}
 
-Each channel $c \in \mathcal{C}$ has a message alphabet $\Gamma_c$. We assume channel alphabets are disjoint.\\
+Each channel $c \in \mathcal{C}$ has a message alphabet $\Gamma_c$. We assume channel alphabets are disjoint. If $w \in \Gamma_c^*$, we mean the first letter of $w$ is at the head of the channel $c$.\\
 Operations on the channel: 
 \begin{itemize}
 \item $c!m$ is a send operation. It appends the message $m$ to the end of channel $c$.
 \item $c?m$ is a read operation. It receives the message $m$ from the head of channel $c$ (enabled only if $m$ is at the head of channel $c$).
-
 \end{itemize}
+
 
 
 \paragraph*{Processes}
@@ -155,7 +153,7 @@ What we mean by acyclic topologies is consider the network topology and ignore t
 \paragraph*{Tree topology}
 
 \hspace*{0.5cm}Given an acyclic topology the reachability problem can be reduced to one in which the target state is reached only if the queue is empty \cite{CQS}. Using this reduction our reachabilty problem reduces to reaching a channel state $\beta_t$ with every channel being empty i.e. we take every channel content to be $\epsilon$ in the target state.\\
-\hspace*{0.5cm}We further reduce our topology to another isomorphic topology that looks like a tree, where every process has one incoming edge (except the root) i.e every process can read from one channel but write to multiple channels \cite{CQS}. Henceforth we work with a tree topology. Although the root node doesn't read from any channel, we add a dummy channel which is initialized to $\epsilon$ for consistency with other nodes. This way every node reads from some channel and we define a function $\iota(p)$, which gives the channel that process $p$ reads from. We define $G_p = (V_p, E_p)$ to be the induced graph of the configuration graph $G$ where $V_p$ are the nodes reachable from $p$ in the tree. 
+\hspace*{0.5cm}We further reduce our topology to another isomorphic topology that looks like a tree, where every process has one incoming edge (except the root) i.e every process can read from one channel but write to multiple channels \cite{CQS}. Henceforth we work with a tree topology. Although the root node doesn't read from any channel, we add a dummy channel which is initialized to $\epsilon$ for consistency with other nodes. This way every node reads from some channel and we define a function $\iota(p)$, which gives the channel that process $p$ reads from. We define $G_p = (V_p, E_p)$ to be the induced subgraph of the configuration graph $G$ where $V_p$ are the nodes reachable from $p$ in the tree. 
 
 
 
@@ -169,7 +167,7 @@ where, $\Sigma_p = \bigcup\limits_{c \in \mathcal{C}} \{ \Gamma_c : r(c) = p \te
     \item if $p$ is a leaf node, $L_p^e = L_p \cap \Gamma_{\iota(p)}^*$,
     \item if $p$ is a non-leaf node, and children of $p$ is given by the set $k(p) = \{k_1, k_2, .., k_l\}$, $L_p^e = L_p \cap \text{shuffle}(\{ \pi_{\iota(i)}(L_i^e)  : i \in k(p)\} \cup \{\Gamma_{\iota(p)}^*\})$
 \end{itemize}
-\hspace*{0.5cm}If there is run $\rho$ in $G$ then by projecting it to $p$ we get $\rho \downarrow_p$, we can take this run and erase the channel name to get a corresponding run in $A_p$. Conversely, if we have a run in $A_p$ labelled with $w$ and the channel $\iota(p)$ has the word $\pi_{\iota(p)}(w)$ then we can get the corresponding run in $G$.
+\hspace*{0.5cm}If there is run $\rho$ in $G$ then by projecting it to $p$ we get $\rho \downarrow_p$, we can take this run and erase the channel name to get a corresponding run in $A_p$. Conversely, if we have a run in $A_p$ labelled with $w$ and start in a configuration where channel $\iota(p)$ has the word $\pi_{\iota(p)}(w)$ then we can get the corresponding run in $G$.
     
 
 
@@ -226,7 +224,7 @@ $\implies$ $w' \in L_p^e$ and $\pi_{\iota(p)}(w') = \omega$
 
    
 \begin{theorem}\label{testenv-theorem}
-    The Reachability problem is decidable for CFSMs with queues over undirected topology. 
+    The Reachability problem is decidable for CFSMs with queues over acyclic toplogies. 
    \end{theorem}
 
    
